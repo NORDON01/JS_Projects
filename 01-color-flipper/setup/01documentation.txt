@@ -1,0 +1,11 @@
+/*************** 01 - C O L O R   F L I P P E R ***************/
+
+***********************
+GENERER UN CODE COULEUR
+***********************
+
+//Affiche la couleur qui correspond au code 
+//hexadecimal (#a5...8) sur 6 caractères (0,1...E, F):
+document.body.style.backgroundColor = nbreHex;
+//Affiche le code proprement dit (#a5...8)
+color.textContent = nbreHex;
