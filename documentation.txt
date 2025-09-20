@@ -1,8 +1,8 @@
 /*************** 01 - C O L O R   F L I P P E R ***************/
 
-***********************
-GENERER UN CODE COULEUR
-***********************
+**************************
+01 GENERER UN CODE COULEUR
+**************************
 
 //Affiche la couleur qui correspond au code 
 //hexadecimal (#a5...8) sur 6 caractères (0,1...E, F):
