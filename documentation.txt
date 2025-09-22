@@ -10,3 +10,43 @@ document.body.style.backgroundColor = nbreHex;
 
 //Affiche le code proprement dit (#a5...8)
 color.textContent = nbreHex;
+
+******
+NAVBAR
+******
+=> 1 HTML: Bouton "Hamburger et liste <ul> de classe ".links"
+    <button class="nav-toggle">
+            <i class="fas fa-bars"></i>
+    </button>
+
+     <ul class="links">     //Liste à toggler
+        <li >
+          <a href="index.html">home</a>
+        </li>
+        .../..
+     </ul>        
+
+=> 2 CSS: 2 classes pour montrer/cacher la liste de classe ".links"
+     .links{
+        height:0;
+        overflow:hidden;
+        transition: var(--transition);
+     }
+
+     .show-links{       //Cette classe est ajoutée ou supprimée(CSS!!!)
+        height:10rem    //Pour 4 adresses <li>
+     }
+=> 3 JS const liste = document.querySelector('.links');
+     const hamburger = document.querySelector('.nav-toggle');
+
+   -31 hamburger.addEventListener('click', function(){
+    if(liste.classList.contains('show-links')){
+        liste.classList.remove('show-links')
+    }else{liste.classList.add('show-links')}
+   })
+            OU
+
+    - 32 hamburger.addEventListener('click', function(){
+        links.classList.toggle('show-links');            
+    })               
+        log(links.classList);
