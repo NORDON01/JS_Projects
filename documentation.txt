@@ -1,4 +1,4 @@
-/*************** 01 - C O L O R   F L I P P E R ***************/
+/********************* J S   P R O J E C T S  *********************/
 
 **************************
 01 GENERER UN CODE COULEUR
@@ -11,9 +11,9 @@ document.body.style.backgroundColor = nbreHex;
 //Affiche le code proprement dit (#a5...8)
 color.textContent = nbreHex;
 
-******
-NAVBAR
-******
+*********
+04 NAVBAR
+*********
 => 1 HTML: Bouton "Hamburger et liste <ul> de classe ".links"
     <button class="nav-toggle">
             <i class="fas fa-bars"></i>
