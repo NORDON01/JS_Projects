@@ -14,12 +14,12 @@ color.textContent = nbreHex;
 *********
 04 NAVBAR
 *********
-=> 1 HTML: Bouton "Hamburger et liste <ul> de classe ".links"
+=> 1 HTML: Bouton "Hamburger + liste <ul> de classe ".links"
     <button class="nav-toggle">
             <i class="fas fa-bars"></i>
     </button>
 
-     <ul class="links">     //Liste à toggler
+     <ul class="links">     //Liste à toggler (montrer/cacher)
         <li >
           <a href="index.html">home</a>
         </li>
@@ -50,3 +50,11 @@ color.textContent = nbreHex;
         links.classList.toggle('show-links');            
     })               
         log(links.classList);
+
+*****
+MODAL
+*****
+  A modal is a dialog box/popup window that is displayed on top of
+  the current page - Open Modal.
+  A widely adopted CSS naming practice is to use "hero" as the 
+  class name applied to a site's main banner.
