@@ -36,18 +36,21 @@ color.textContent = nbreHex;
      .show-links{       //Cette classe est ajoutée ou supprimée(CSS!!!)
         height:10rem    //Pour 4 adresses <li>
      }
-=> 3 JS const liste = document.querySelector('.links');
+=> 3 JS: 
+     const liste = document.querySelector('.links');
      const hamburger = document.querySelector('.nav-toggle');
 
+    //Le(s) bouton(s) reçoivent des écouteurs !!!:
    -31 hamburger.addEventListener('click', function(){
     if(liste.classList.contains('show-links')){
         liste.classList.remove('show-links')
     }else{liste.classList.add('show-links')}
    })
-            OU
+            OU (si un seul bouton, une seule class)
 
     - 32 hamburger.addEventListener('click', function(){
-        links.classList.toggle('show-links');            
+        //Elmt à montrer/cacher.classList.toggle('CSS'): 
+        links.classList.toggle('show-links');        
     })               
         log(links.classList);
 
