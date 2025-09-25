@@ -56,8 +56,26 @@ color.textContent = nbreHex;
 
 *****
 MODAL
-*****
+***** 
   A modal is a dialog box/popup window that is displayed on top of
   the current page - Open Modal.
   A widely adopted CSS naming practice is to use "hero" as the 
   class name applied to a site's main banner.
+
+******************
+TRAVERSING THE DOM
+******************
+const btns = document.querySelectorAll('.question-btn');
+log(btns);
+
+btns.forEach(function(btn){
+    btn.addEventListener("click", function(evt){
+        log(evt.currentTarget);
+        //On "traverse" jusqu'au grand- parent du btn:
+        const question = evt.currentTarget.parentElement.parentElement;
+        //On ajoute / supprime la classe "show-text" à la classList du grand parent:
+        question.classList.toggle("show-text");
+    });
+});
+   
+Où question est une classe du grand-parent des btns.
