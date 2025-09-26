@@ -62,9 +62,9 @@ MODAL
   A widely adopted CSS naming practice is to use "hero" as the 
   class name applied to a site's main banner.
 
-******************
-TRAVERSING THE DOM
-******************
+************************************
+07-1- QUESTIONS - TRAVERSING THE DOM
+************************************
 const btns = document.querySelectorAll('.question-btn');
 log(btns);
 
@@ -78,4 +78,22 @@ btns.forEach(function(btn){
     });
 });
    
-Où question est une classe du grand-parent des btns.
+Où "question" est une classe du grand-parent des btns.
+
+***************************************************
+07-2 QUESTIONS - USING SELECTORS INSIDE THE ELEMENT
+***************************************************
+questions.forEach(function(question){
+    /* Rechercher le bouton de la seule question (!= document): */
+   const btn = question.querySelector('.question-btn');
+   /* Ajouter un écouteur à ce seul bouton */
+   btn.addEventListener('click', function(){
+    /* Parcourir à nouveau la liste des questions (items) */
+   questions.forEach(function(item){
+    /* Comparer chaque item à la question qui reçoit l'écouteur */
+    if(item !== question){
+    item.classList.remove('show-text')}
+    else {question.classList.toggle('show-text')}
+   })
+   })
+})
