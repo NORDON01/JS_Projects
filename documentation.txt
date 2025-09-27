@@ -1,7 +1,7 @@
 /********************* J S   P R O J E C T S  *********************/
 
 **************************
-01 GENERER UN CODE COULEUR
+01-GENERER UN CODE COULEUR
 **************************
 
 //Affiche la couleur qui correspond au code 
@@ -12,7 +12,7 @@ document.body.style.backgroundColor = nbreHex;
 color.textContent = nbreHex;
 
 *********
-04 NAVBAR
+04-NAVBAR
 *********
 => 1 HTML: Bouton "Hamburger + liste <ul> de classe ".links"
     <button class="nav-toggle">
@@ -54,9 +54,9 @@ color.textContent = nbreHex;
     })               
         log(links.classList);
 
-*****
-MODAL
-***** 
+********
+06-MODAL
+********
   A modal is a dialog box/popup window that is displayed on top of
   the current page - Open Modal.
   A widely adopted CSS naming practice is to use "hero" as the 
@@ -97,3 +97,75 @@ questions.forEach(function(question){
    })
    })
 })
+
+********************************
+08 DISPLAY ITEMS WHEN PAGE LOADS
+********************************
+HTML:
+        <!-- single item 1 -->
+        <article class="menu-item">
+          <img src="./menu-item.jpeg" alt="photo" class="photo">
+          <div class="item-info">
+            <header>
+              <h4>butter milk pancakes</h4>
+              <h4 class="price">$15</h4>
+            </header>
+            <p class="item-text" >Lorem ipsum dolor sit amet consectetur adipisicing
+               elit. Consequuntur voluptates quae velit? Ea atque 
+               maxime soluta. Tempore maxime provident dolorem.</p>
+          </div>
+        </article>
+        <!-- end single item 1 -->
+
+app.js:
+const log = console.log;
+let displayMenu = []; 
+const sectionCenter = document.querySelector('.section-center');
+window.addEventListener('DOMContentLoaded', function(){
+    displayMenu = menu.map(function(item){
+    return `<article class="menu-item">
+          <img src=${item.img} alt=${item.title} class="photo">
+          <div class="item-info">
+            <header>
+              <h4>${item.title}</h4>
+              <h4 class=${item.price}>$15</h4>
+            </header>
+            <p>${item.desc}</p>
+          </div>
+        </article>`
+  })
+  log(displayMenu);
+  displayMenu = displayMenu.join("");
+  sectionCenter.innerHTML = displayMenu;
+})
+
+***********
+08-REFACTOR
+***********
+L'opération consiste à créer une fonction "displayMenuItems"
+qui est paramétrable et peut recevoir n'importe quelle array d'items
+dont "menu" qui comprend 9 items:
+
+
+const sectionCenter = document.querySelector('.section-center');
+window.addEventListener('DOMContentLoaded', function(){
+    displayMenuItems(menu)              //Appel de la nouvelle fonction
+})
+
+function displayMenuItems(menuItems){   //Nouvelle fonction paramétrable
+  let displayMenu = menuItems.map(function(item){
+    return `<article class="menu-item">
+          <img src=${item.img} alt=${item.title} class="photo">
+          <div class="item-info">
+            <header>
+              <h4>${item.title}</h4>
+              <h4 class=${item.price}>$15</h4>
+            </header>
+            <p>${item.desc}</p>
+          </div>
+        </article>`
+  })
+  log(displayMenu);
+  displayMenu = displayMenu.join("");
+  sectionCenter.innerHTML = displayMenu;
+}
