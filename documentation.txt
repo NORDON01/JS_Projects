@@ -169,3 +169,11 @@ function displayMenuItems(menuItems){   //Nouvelle fonction paramétrable
   displayMenu = displayMenu.join("");
   sectionCenter.innerHTML = displayMenu;
 }
+
+**************
+FILTER BUTTONS
+**************
+   data- : data-id, data-category, data-price...these data sets ara attributes of
+an element which make the element more specific?
+ Dans le HTML, example: data-id="breakfast", data-id="all"...on aura:
+ <button class="filter-btn" type="button" data-id="lunch">lunch</button>

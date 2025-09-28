@@ -1,4 +1,4 @@
-const menu = [
+ const menu = [
   {
     id: 1,
     title: "buttermilk pancakes",
@@ -78,6 +78,19 @@ const sectionCenter = document.querySelector('.section-center');
 window.addEventListener('DOMContentLoaded', function(){
     displayMenuItems(menu)
 })
+const filterBtns = document.querySelectorAll('.filter-btn');
+filterBtns.forEach(function(btn){
+  btn.addEventListener('click', function(evt){
+  const category = evt.currentTarget.dataset.id;/*category critère de sélection */
+  const menuCategory = menu.filter(function(menuItem){
+   /* La fonction filter - filtre = category - */
+   if(menuItem.category === category)return menuItem;
+   })
+   /* Display menuCategory */
+   if(category === "all") {displayMenuItems(menu)}
+   else {displayMenuItems(menuCategory)}
+  })
+})
 
 function displayMenuItems(menuItems){
   let displayMenu = menuItems.map(function(item){
@@ -92,7 +105,7 @@ function displayMenuItems(menuItems){
           </div>
         </article>`
   })
-  log(displayMenu);
+  /* log(displayMenu); */
   displayMenu = displayMenu.join("");
   sectionCenter.innerHTML = displayMenu;
 }
