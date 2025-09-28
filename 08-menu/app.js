@@ -81,11 +81,12 @@ window.addEventListener('DOMContentLoaded', function(){
 const filterBtns = document.querySelectorAll('.filter-btn');
 filterBtns.forEach(function(btn){
   btn.addEventListener('click', function(evt){
-  const category = evt.currentTarget.dataset.id;/*category critère de sélection */
+  /*category critère de sélection : */
+  const category = evt.currentTarget.dataset.id;
   const menuCategory = menu.filter(function(menuItem){
    /* La fonction filter - filtre = category - */
    if(menuItem.category === category)return menuItem;
-   })
+  })
    /* Display menuCategory */
    if(category === "all") {displayMenuItems(menu)}
    else {displayMenuItems(menuCategory)}
