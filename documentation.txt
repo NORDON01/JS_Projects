@@ -170,19 +170,19 @@ function displayMenuItems(menuItems){   //Nouvelle fonction paramétrable
   sectionCenter.innerHTML = displayMenu;
 }
 
-**************
-FILTER BUTTONS
-**************
+************************
+FILTER BUTTONS STATIQUES
+************************
    data- : data-id, data-category, data-price...these data sets ara attributes of
-an element which make the element more specific?
- Dans le HTML, example: data-id="breakfast", data-id="all"...on aura:
- <button class="filter-btn" type="button" data-id="lunch">lunch</button>
- Et dans le JS (app.js):
+an element which make the element more specific.
+Dans le HTML, example: data-id="breakfast", data-id="all"...on aura:
+<button class="filter-btn" type="button" data-id="lunch">lunch</button>
+Et dans le JS (app.js):
 
  const filterBtns = document.querySelectorAll('.filter-btn');
 filterBtns.forEach(function(btn){
   btn.addEventListener('click', function(evt){
-  const category = evt.currentTarget.dataset.id;/*category critère de sélection */
+=>const category = evt.currentTarget.dataset.id;/*category critère de sélection */
   const menuCategory = menu.filter(function(menuItem){
    /* La fonction filter - filtre = category - */
    if(menuItem.category === category)return menuItem;
@@ -192,3 +192,21 @@ filterBtns.forEach(function(btn){
    else {displayMenuItems(menuCategory)}
   })
 })
+
+****************
+FILTER DYNAMIQUE
+**************** 
+=>  Using REDUCE to remove duplicates:
+    let categories = menu.map(function(item){
+      return item.category;
+    })
+    log(categories); //(10) ['breakfast', 'lunch', 'shakes', 'breakfast', 
+                     //'lunch', 'shakes', 'breakfast', 'lunch', 'shakes', 'dinner']
+
+=>    categories = menu.reduce(function(values, item){
+      if(!values.includes(item.category)){
+          values.push(item.category)
+      }
+      return values;  //OBLIGATOIRE !!!
+    },["all"])
+    log(categories);(5) ['all', 'breakfast', 'lunch', 'shakes', 'dinner']
