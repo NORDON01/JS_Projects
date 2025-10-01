@@ -86,6 +86,10 @@ const sectionCenter = document.querySelector('.section-center');
 const container = document.querySelector('.btn-container');
 window.addEventListener('DOMContentLoaded', function(){
     displayMenuItems(menu);
+    displayMenuButtons();
+})
+
+function displayMenuButtons(){
     let categories = menu.map(function(item){
       return item.category;
     })
@@ -98,6 +102,7 @@ window.addEventListener('DOMContentLoaded', function(){
     },["all"])
     log(categories);
     /*Fin élimination des doublons */
+
     /* Création dynamique des boutons dans le HTML */
     const categoryBtns = categories.map(function(category){
       return `<button class="filter-btn" type="button" 
@@ -105,22 +110,22 @@ window.addEventListener('DOMContentLoaded', function(){
     }).join("");
     container.innerHTML = categoryBtns;
     /* Fin Création dynamique des boutons dans le HTML */
-
-  })
-const filterBtns = document.querySelectorAll('.filter-btn');
-filterBtns.forEach(function(btn){
-  btn.addEventListener('click', function(evt){
-  /*category critère de sélection : */
-  const category = evt.currentTarget.dataset.id;
-  const menuCategory = menu.filter(function(menuItem){
-   /* La fonction filter - filtre = category - */
-   if(menuItem.category === category)return menuItem;
-  })
-   /* Display menuCategory */
-   if(category === "all") {displayMenuItems(menu)}
-   else {displayMenuItems(menuCategory)}
-  })
-})
+    
+    /* Sélection des boutons créés + ajout d'un écouteur  */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(function(btn){
+      btn.addEventListener('click', function(evt){
+        /*category critère de sélection : attribut data- set du bouton clické */
+        const category = evt.currentTarget.dataset.id;
+        /* Sélection des items du menu qui correspondent à la "category": */
+        const menuCategory = menu.filter(function(menuItem){
+          if(menuItem.category === category)return menuItem;})
+            /* Affichage du résultat dans le HTML */
+          if(category === "all") {displayMenuItems(menu)}
+          else {displayMenuItems(menuCategory)}
+       })
+    })
+}
 
 function displayMenuItems(menuItems){
   let displayMenu = menuItems.map(function(item){
