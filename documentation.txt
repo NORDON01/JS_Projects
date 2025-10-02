@@ -288,3 +288,36 @@ btn.addEventListener('click', function(){
   background: rgba(0, 0, 0, 0.7);/* BLACK OVERLAY */
   z-index: -1;
 }
+
+=> Preloader:
+HTML:
+    <div class="preloader">
+      <img src="./preloader.gif" alt="preloader">
+    </div>
+
+CSS:
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--clr-white);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  z-index: 999;
+  transition: var(--transition);
+}    
+
+.hide-preloader {
+  z-index: -999;
+  visibility: hidden;
+}
+
+JS:
+const preloader = document.querySelector('.preloader');
+window.addEventListener('load', function(){ /* When ALL files are loaded */
+    preloader.classList.add('hide-preloader');
+})

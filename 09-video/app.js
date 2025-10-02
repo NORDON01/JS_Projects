@@ -18,3 +18,8 @@ btn.addEventListener('click', function(){
     }
 })
 
+const preloader = document.querySelector('.preloader');
+window.addEventListener('load', function(){ /* When ALL files are loaded */
+    preloader.classList.add('hide-preloader');
+})
+
