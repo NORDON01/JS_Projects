@@ -193,9 +193,9 @@ filterBtns.forEach(function(btn){
   })
 })
 
-****************
+*******************
 08-FILTER DYNAMIQUE
-**************** 
+*******************
 =>  Using REDUCE to remove duplicates:
     let categories = menu.map(function(item){
       return item.category;
@@ -347,9 +347,9 @@ CSS:
     height: 200px;  //height of links is fixed !!!
   }
 
-****************
+*******************
 10-SCROLL DYNAMIQUE
-****************
+*******************
 CSS:
   .fixed-nav .links-container { //links-container wraps links
       height: auto;             //height is dynamic !!!
@@ -391,4 +391,44 @@ window.addEventListener('scroll', function(){
 ****************
 10-SMOOTH SCROLL
 ****************
+// select links
+const scrollLinks = document.querySelectorAll('.scroll-link');
+//log(scrollLinks);
+scrollLinks.forEach(function(link){
+    link.addEventListener('click', function(evt){
+        evt.preventDefault();/* Bloque le déplacement vers l'adresse sélectionnée */
+        //navigate to specific spot
+        const id = evt.currentTarget.getAttribute('href').slice(1);     //Retire le '#'
+        log('ID: '+ id);
+        const element = document.getElementById(id);
+        log(element);
+        let position = element.offsetTop;
+        log('Position:' + position);
+        window.scrollTo({
+            left:0,
+            top:position
+        })
+        linksContainer.style.height=0;
+    })
+})
 
+
+**********************
+SMOOTH SCROLL COMPLETE
+**********************
+
+????
+
+***********
+VOCABULAIRE
+***********
+   element.offsetTop;
+   window.pageYOffset;
+   window.scrollTo({X, Y})
+   evt.currentTarget.getAttribute('href')
+   date.textContent, date.innerHTML
+   navbar.getBoundingClientRect().height;
+
+****
+TABS
+****
