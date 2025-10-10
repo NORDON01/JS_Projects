@@ -427,8 +427,33 @@ VOCABULAIRE
    window.scrollTo({X, Y})
    evt.currentTarget.getAttribute('href')
    date.textContent, date.innerHTML
-   navbar.getBoundingClientRect().height;
+   navbar.getBoundingClientRect().height; 
+   preventDefault, example:
+      <body>
+      <a id="myAnchor" href="https://w3schools.com/">Go to W3Schools.com</a>
+      <p>The preventDefault() method will prevent the link above from following the URL.</p>
+
+      <script>
+        document.getElementById("myAnchor").addEventListener("click", 
+             function(event){
+              event.preventDefault()
+             });
+      </script>
+      </body>
 
 ****
 TABS
 ****
+target vs currentTarget:https://www.youtube.com/watch?v=SpatM1W5wRQ
+
+const main =document.querySelector('main').addEventListener('click', clicked);
+const div =document.querySelector('div').addEventListener('click', clicked);
+
+The target is the selector (tag or class) which stands before "addEventListener";
+The currentTarget is the selector to which the event stopped;
+
+If I click on main: target is main and currentTarget is main; the "clicked"
+function is executed once;
+If I click on div: target is div, the event bubbles up, the currentTarget is
+main; the clicked function gets executed twice.
+
