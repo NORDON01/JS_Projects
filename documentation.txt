@@ -457,3 +457,8 @@ function is executed once;
 If I click on div: target is div, the event bubbles up, the currentTarget is
 main; the clicked function gets executed twice.
 
+*********
+COUNTDOWN
+*********
+
+
