@@ -170,9 +170,9 @@ function displayMenuItems(menuItems){   //Nouvelle fonction paramétrable
   sectionCenter.innerHTML = displayMenu;
 }
 
-************************
+***************************
 08-FILTER BUTTONS STATIQUES
-************************
+***************************
    data- : data-id, data-category, data-price...these data sets ara attributes of
 an element which make the element more specific.
 Dans le HTML, example: data-id="breakfast", data-id="all"...on aura:
@@ -460,5 +460,87 @@ main; the clicked function gets executed twice.
 *********
 COUNTDOWN
 *********
+  Deux classes sur un même élément, une classe pour assurer la mise en forme
+  et une pour assurer des interactions avec le javascript.
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+const weekdays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
+app.js:
+  let futureDate = new Date(2025, 4, 24, 11, 30, 0) /* An, mois, jour, hh, mm, ss */
+log(futureDate);
+/* Easy */
+const year = futureDate.getFullYear();
+const hours = futureDate.getHours();
+const minutes = futureDate.getMinutes();
+const date = futureDate.getDate();  /* jour du mois */
+log(date);
+/* Not so easy */
+const monthNumber = futureDate.getMonth(); /* A number 0 to 11*/
+const month = months[monthNumber];
+log(month);
+const weekdayNumber = futureDate.getDay();
+const weekDay = weekdays[weekdayNumber];
+log(weekDay);                       /* jour de la semaine  */
+
+giveaway.textContent = `Give away ends on ${weekDay} ${date} ${month},${year}, 
+${hours}:${minutes} am`;
+log(giveaway.textContent);  
+
+/* Calcul du délai entre aujourd'hui et une date future */
+//Fonction calcul du temps  restant à une date
+let remainingTime = function(futureDate){
+  let futureTime = futureDate.getTime();
+  log('Date limite: ' + futureTime); 
+  let presentTime = (new Date()).getTime();
+  log('Date du jour: ' + presentTime)
+  
+//Transforme délai de millisecondes en jrs hrs mins et secondes
+t = futureTime- presentTime;
+log(`T:${t}`)
+const day = 24 * 60 * 60 * 1000; const hr = 60 * 60 *1000;const mn = 60000;
+let days = Math.floor(t/day);// log(`Jours entiers restant ${days}`);
+let tRestant = t%day;        //log(`Heures restantes en ms: ${tRestant}`);
+//log(`ctrl: ${(days*day + tRestant)}`)
+let hrs = Math.floor(tRestant/hr); //log(`Heures entières: ${hrs}`);
+tRestant = tRestant%hr; //log(`Minutes restantes en ms: ${tRestant}`);
+let mns = Math.floor(tRestant/mn); //log(`Minutes entières ${mns}`);
+tRestant = tRestant%mn; //log(`Secondes restantes en ms: ${tRestant}`);
+let secondes = tRestant /1000; //log(`Secondes: ${secondes}`);
+secondes = Math.ceil(secondes);
+let controle = secondes*1000 + mns*60000 + hrs*hr + days*day;
+log(`Controle: ${controle}`);
+
+//Affichage du temps restant "t"
+let values = [days, hrs, mns,secondes];
+items.forEach(function(item, index){  //index: optional donne le rang (0 à 3)
+  item.textContent = values[index];
+})
+}//FIN 1ERE BOUCLE remainingTime
+
+/* LANCEMENT DE LA BOUCLE calcul */
+let calcul = function(){remainingTime(new Date(2026, 10, 15, 12, 0, 0));}
+setInterval(calcul, 1000);
+
+clearInterval(calcul);//Bouton arrêt à créer
