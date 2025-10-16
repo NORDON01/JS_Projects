@@ -544,3 +544,10 @@ let calcul = function(){remainingTime(new Date(2026, 10, 15, 12, 0, 0));}
 setInterval(calcul, 1000);
 
 clearInterval(calcul);//Bouton arrêt à créer
+
+***********
+LOREM IPSUM
+***********
+Input element is always a String => use parseInt(String) to extract a number. 
+La saisie d'un input apparait en noir s'agissant d'un String puis tourne au bleu
+après utilisation de parseInt().

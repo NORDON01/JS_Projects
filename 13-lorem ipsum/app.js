@@ -11,3 +11,30 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
   `Man braid celiac synth freegan readymade, pitchfork fam salvia waistcoat lomo bitters gentrify four loko. Pitchfork semiotics post-ironic vegan. Tofu meditation microdosing hashtag semiotics venmo. Flexitarian vape tilde taiyaki. Prism poutine farm-to-table, messenger bag vegan taxidermy tattooed sartorial squid jean shorts fixie selvage trust fund vape.`,
   `Rutters Plate Fleet boom chandler Brethren of the Coast handsomely lookout marooned brigantine knave. Buccaneer gangway jack rum loot spyglass line Jack Tar fore gaff. Gaff topmast scuttle ballast swab draught measured fer yer chains dance the hempen jig Chain Shot yardarm.`,
 ];
+
+const log = console.log;
+const form = document.querySelector(".lorem-form");
+log(form);
+const amount = document.getElementById("amount");
+log(amount);
+const result =document.querySelector(".lorem-text");
+log(result);
+let random = Math.random()*text.length; random = Math.floor(random);log(random);
+//const random = Math.floor(Math.random())*text.length; log(random);
+
+form.addEventListener("submit", function(evt){
+  evt.preventDefault();   //Pour éviter que le "submit" agisse par défaut
+  let value = parseInt(amount.value);
+  //NaN amount ne peut être vide ou un String
+  //ni <0 ou > 9 pour la sélection dans text[]
+  //Defaultdisplay
+  if(isNaN(value) || value < 0 || value > 8){
+    result.innerHTML = `<p class= "result">${text[random]}</p>`;
+  }else{
+    let extrait = text.slice(0, value); log(extrait);
+    extrait = extrait.map(function(item){
+      return `<p class = "result">${item}</p>`
+    }).join("");
+    result.innerHTML = extrait;
+  }
+})
