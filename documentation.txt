@@ -545,9 +545,60 @@ setInterval(calcul, 1000);
 
 clearInterval(calcul);//Bouton arrêt à créer
 
-***********
-LOREM IPSUM
-***********
+**************
+13-LOREM IPSUM
+**************
 Input element is always a String => use parseInt(String) to extract a number. 
 La saisie d'un input apparait en noir s'agissant d'un String puis tourne au bleu
 après utilisation de parseInt().
+
+*******************
+14-GROCERY ADD ITEM
+*******************
+- Convertir une nodeList en Array
+
+// Récupération de tous les éléments ayant la classe "exemple" dans un NodeList
+const nodeListName = document.querySelectorAll('.exemple');
+
+// Conversion du NodeList en Array grâce au spread operator
+const array = [...nodeListName];
+
+// Affichage du résultat dans la console pour vérification
+console.log(array);
+
+Example:
+log(grocery.attributes);
+let groceryArray = [...grocery.attributes];
+for(let i=0; i < groceryArray.length; i++){
+    log(groceryArray[i].value);
+}
+
+https://www.w3schools.com/html/html_forms.asp
+
+A form element is a container for different types of form elements:
+The HTML <form> ele ment can contain one or more of the following form elements:
+
+    <input>        id
+    <label>        for
+    <select>       The <select> element defines a drop-down list: <option>
+    <textarea>     
+    <button>
+    <fieldset>
+    <legend>
+    <datalist>
+    <output>
+    <option>
+    <optgroup>
+
+The HTML <input> element is the most used form element.
+An <input> element can be displayed in many ways called "types": 
+Examples of type attribute <input type="text", radio, 
+checkbox, submit, button....>.
+
+The input element has attributes:
+    value : The input value attribute specifies an initial value 
+            for an input field.
+    readonly
+    disabled
+
+    
