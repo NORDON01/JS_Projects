@@ -449,7 +449,7 @@ target vs currentTarget:https://www.youtube.com/watch?v=SpatM1W5wRQ
 const main =document.querySelector('main').addEventListener('click', clicked);
 const div =document.querySelector('div').addEventListener('click', clicked);
 
-The target is the selector (tag or class) which stands before "addEventListener";
+The target is the selector (tag, class or id) which stands before "addEventListener";
 The currentTarget is the selector to which the event stopped;
 
 If I click on main: target is main and currentTarget is main; the "clicked"
@@ -555,16 +555,16 @@ après utilisation de parseInt().
 *******************
 14-GROCERY ADD ITEM
 *******************
-- Convertir une nodeList en Array
+=> Convertir une nodeList en Array
 
 // Récupération de tous les éléments ayant la classe "exemple" dans un NodeList
 const nodeListName = document.querySelectorAll('.exemple');
 
 // Conversion du NodeList en Array grâce au spread operator
-const array = [...nodeListName];
+const arrayName = [...nodeListName];
 
 // Affichage du résultat dans la console pour vérification
-console.log(array);
+console.log(arrayName);
 
 Example:
 log(grocery.attributes);
@@ -573,10 +573,11 @@ for(let i=0; i < groceryArray.length; i++){
     log(groceryArray[i].value);
 }
 
+=> FORMS
 https://www.w3schools.com/html/html_forms.asp
 
 A form element is a container for different types of form elements:
-The HTML <form> ele ment can contain one or more of the following form elements:
+The HTML <form> element can contain one or more of the following form elements:
 
     <input>        id
     <label>        for
@@ -601,4 +602,63 @@ The input element has attributes:
     readonly
     disabled
 
+=> CREER UN ELEMENT DYNAMIQUEMENT et lui attacher une classe, 
+   un attribut et un innerHTML:
+  const element = document.createElement('article');
+   //add classList
+   element.classList.add('grocery-item');
+   //add attribute data-id
+   const attr = document.createAttribute('data-id');
+   attr.value = id; (L'heure en millisecondes)
+   element.setAttributeNode(attr); 
+   //add element to HTML
+   element.innerHTML = `<p class="title">${value}</p>
+            <div class="btn-container">
+              <button type="button" class="edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button type="button" class="delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>`    
+
+=> NODES- Different types of node: element node, comment node, text node...  
+          Children only include element nodes, whereas childnodes include 
+          all types of nodes. 
+
+    previousSibling => any type of sibling;
+    previousElementSibling => first sibling of element type;
+
+    EXAMPLE: const element = evt.currentTarget.parentElement
+                             .previousElementSibling;
+    The currentTarget is a <button> (.edit-btn) : currentTarget
+    child of <div> (.btn-container):              parentElement
+    which is sibling of <p> (.title):             previousElementSibling
     
+=> innerHTML, textContent, innertext
+
+    https://builtin.com/software-engineering-perspectives/innerhtml-vs-innertext
+
+  JavaScript, the innerHTML property returns HTML markup, or all text content
+  of an element (including spacing and HTML tags). 
+  The innerText property shows visible rendered text, or the text content 
+  of an element (without spacing, CSS hidden text and HTML tags). 
+  The textContent property retrieves raw text, or the text content 
+  of an element (including spacing and CSS hidden text, but no HTML tags).
+
+                  HTML    TEXT CONTENT    SPACING   FORMATING
+
+      InnerHTML     X           X             X         X
+
+      InnerText     NO          X             NO        NO
+
+      TextContent   NO          X             X         X
+
+=> Value property: The value property sets or returns 
+   the value of the value attribute of a text field.     
+
+   Example: <input type="text" id="grocery".../> donne grocery.value 
+   
+   Return the value property: textObject.value
+
+   Set the value property:  textObject.value = text
