@@ -131,7 +131,8 @@ function setBackToDefault(){
 
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value){
-    log('Added to local storage');
+    localStorage.setItem('bread', ['item7', 'item8']);
+    localStorage.removeItem('friends')
 }
 function removeFromLocalStorage(id){};
 function editLocalStorage(id, value){};

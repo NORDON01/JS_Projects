@@ -662,3 +662,14 @@ The input element has attributes:
    Return the value property: textObject.value
 
    Set the value property:  textObject.value = text
+
+=> Local storage:   
+    setItem,
+    getItem,
+    removeItem.
+
+    All the data is stored as String.
+    Examples:
+        localStorage.setItem('orange', JSON.stringify['item1', 'item2']);
+        const oranges = JSON.parse(localStorage.getItem('orange'))
+        localStorage.removeItem('orange');
