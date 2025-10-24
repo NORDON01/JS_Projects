@@ -654,7 +654,7 @@ The input element has attributes:
 
       TextContent   NO          X             X         X
 
-=> Value property: The value property sets or returns 
+tat=> Value property: The value property sets or returns 
    the value of the value attribute of a text field.     
 
    Example: <input type="text" id="grocery".../> donne grocery.value 
@@ -673,3 +673,8 @@ The input element has attributes:
         localStorage.setItem('orange', JSON.stringify['item1', 'item2']);
         const oranges = JSON.parse(localStorage.getItem('orange'))
         localStorage.removeItem('orange');
+
+******
+SLIDER
+******
+        
