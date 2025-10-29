@@ -414,7 +414,7 @@ scrollLinks.forEach(function(link){
 
 
 **********************
-SMOOTH SCROLL COMPLETE
+10-SMOOTH SCROLL COMPLETE
 **********************
 
 ????
@@ -441,9 +441,9 @@ VOCABULAIRE
       </script>
       </body>
 
-****
-TABS
-****
+*******
+11-TABS
+*******
 target vs currentTarget:https://www.youtube.com/watch?v=SpatM1W5wRQ
 
 const main =document.querySelector('main').addEventListener('click', clicked);
@@ -458,7 +458,7 @@ If I click on div: target is div, the event bubbles up, the currentTarget is
 main; the clicked function gets executed twice.
 
 *********
-COUNTDOWN
+12-COUNTDOWN
 *********
   Deux classes sur un même élément, une classe pour assurer la mise en forme
   et une pour assurer des interactions avec le javascript.
@@ -674,7 +674,52 @@ tat=> Value property: The value property sets or returns
         const oranges = JSON.parse(localStorage.getItem('orange'))
         localStorage.removeItem('orange');
 
-******
-SLIDER
-******
-        
+*********
+15-SLIDER
+*********
+   The slider-container uses position relative.  
+   Each slide uses position absolute and covers the previous slide.
+   At the start only the last slide is displayed on the screen.
+
+   .slider-container has "overflow: hidden;" property so that only one
+   slide can be seen at a time.
+
+*******
+DATASET
+*******
+Méthodes: Element.getAttribute(), setAttribute(), removeAttribute(), hasAttribute();
+
+Tout attribut d'un élément dont le nom commence par data- 
+est un attribut de données (data attribute)
+
+<article
+  id="voitureelectrique"
+  data-columns="3"
+  data-index-number="12314"
+  data-parent="voitures">
+  ...
+</article>
+
+Vous pourriez utiliser getAttribute() avec leur nom HTML complet pour les lire.
+De manière plus simple : un DOMStringMap peut être lu via une propriété dataset:
+
+var article = document.getElementById("voitureelectrique");
+
+- Accéder aux attributs via le JS:
+    article.dataset.columns; // "3"
+    article.dataset.indexNumber; // "12314" index-number devient indexNumber !!!
+    article.dataset.parent; // "voitures"
+
+- Accéder via le CSS:
+    article[data-columns="3"] {
+      width: 400px;
+    }
+    
+    article[data-columns="4"] {
+      width: 600px;
+    }
+
+*******
+OBJECTS
+*******
+VOIR LE COURS JS TUTORIAL
