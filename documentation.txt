@@ -723,3 +723,57 @@ var article = document.getElementById("voitureelectrique");
 OBJECTS
 *******
 VOIR LE COURS JS TUTORIAL
+
+****
+THIS
+****
+https://www.youtube.com/watch?v=Z3M4CV5tLnY
+
+-1 This dans la portée globale:
+function getThis(){
+    return this;
+}
+log(getThis()); //window
+
+  Donc THIS pointe sur window.
+
+-2 Call back d'un gestionnaire d'événement
+const btn = document.querySelector('.monBtn'); log(btn);
+
+btn.addEventListener('click', function(){
+    log('Type of THIS: ' + typeof(this)); // Object
+    log(this);                            // <button class="monBtn">MON BOUTON</button>
+})
+  Donc THIS pointe sur le bouton "btn".
+
+-3 Avec un new (Cas d'un Prototype ou d'une Class):
+const obj = new Obj{
+    constructor(){
+        log(this);    //Obj {}
+    }
+}
+
+const obj = new Obj;    //obj pointe sur Obj{}, le "modèle"
+
+-4 Avec une méthode d'un objet
+const monBtn = document.querySelector('.monBtn');
+           
+class Obj{
+    constructor(){
+        this.click= false;
+        this.set = function(){
+            log(this);          //Obj{click:false, set:f}
+            this.click = true;
+        }
+    }
+}
+
+const obj = new Obj;    
+
+monBtn.addEventListener('click', obj.set);          //this pointe sur monBtn
+monBtn.addEventListener('click', obj.set.bind(obj));//this pointe sur Obj
+
+bind déplace le pointeur de monBtn sur Obj;
+
+
+https://www.youtube.com/watch?v=6tC4tv9MlkI (Les classes)
